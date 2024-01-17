@@ -56,17 +56,9 @@ class _CacheManagerPanelState extends State<CacheManagerPanel> {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Cache Manager",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline6!
-                      .copyWith(color: Theme.of(context).accentColor)),
+              Text("Cache Manager"),
               Container(height: 50),
-              Text("1. Choose mode:",
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle2!
-                      .copyWith(color: Theme.of(context).accentColor)),
+              Text("1. Choose mode:"),
               DropdownButton<_Mode>(
                   value: _mode,
                   onChanged: (value) => setState(() => _mode = value),
@@ -87,10 +79,7 @@ class _CacheManagerPanelState extends State<CacheManagerPanel> {
               for (var w in getSubKeyViews(context)) w,
               Container(height: 20),
               Text("${getLabel()}. to clear",
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle2!
-                      .copyWith(color: Theme.of(context).accentColor)),
+                  style: Theme.of(context).textTheme.subtitle2),
               Padding(
                   padding: EdgeInsets.all(10),
                   child: FloatingActionButton(
@@ -129,11 +118,9 @@ class _CacheManagerPanelState extends State<CacheManagerPanel> {
     if (_mode == _Mode.clearAll) return [];
     _requestMethodController.text = "POST";
     return [
-      Text("2. RequestMethod:",
-          style: Theme.of(context)
-              .textTheme
-              .subtitle2!
-              .copyWith(color: Theme.of(context).accentColor)),
+      Text(
+        "2. RequestMethod:",
+      ),
       TextField(
           controller: _requestMethodController,
           style: Theme.of(context).textTheme.bodyText1),
@@ -145,11 +132,7 @@ class _CacheManagerPanelState extends State<CacheManagerPanel> {
     if (_mode == _Mode.clearAll) return [];
     _keyController.text = "${DioHelper.baseUrl}$_url";
     return [
-      Text("3. Key:",
-          style: Theme.of(context)
-              .textTheme
-              .subtitle2!
-              .copyWith(color: Theme.of(context).accentColor)),
+      Text("3. Key:"),
       TextField(
           controller: _keyController,
           style: Theme.of(context).textTheme.bodyText1),
@@ -161,14 +144,10 @@ class _CacheManagerPanelState extends State<CacheManagerPanel> {
     if (_mode == _Mode.clearAll || _mode == _Mode.clearByKey) return [];
     _subKeyController.text = "k=flutter";
     return [
-      Text("4. Subkey:",
-          style: Theme.of(context)
-              .textTheme
-              .subtitle2!
-              .copyWith(color: Theme.of(context).accentColor)),
+      Text("4. Subkey:"),
       TextField(
-          controller: _subKeyController,
-          style: Theme.of(context).textTheme.bodyText1),
+        controller: _subKeyController,
+      ),
       Container(height: 20),
     ];
   }
